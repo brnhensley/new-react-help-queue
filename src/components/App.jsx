@@ -1,6 +1,8 @@
 import React from 'react';
 import TicketList from './TicketList';
 import Header from './Header';
+import { Switch, Route } from 'react-router-dom';
+import NewTicketForm from './NewTicketForm.jsx';
 
 function App() {
 
@@ -24,7 +26,10 @@ function App() {
         }
       `}</style>
       <Header />
-      <TicketList />
+      <Switch>
+        <Route exact path='/' component={TicketList} />
+        <Route path='/newticket' component={NewTicketForm} />
+      </Switch>
     </div>
   );
 }
