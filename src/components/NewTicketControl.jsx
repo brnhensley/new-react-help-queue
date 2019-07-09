@@ -8,7 +8,7 @@ class NewTicketControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formVisibleOnPage: false
+      formVisibleOnPage: false,
     };
     this.handleTroubleshootingConfirmation = this.handleTroubleshootingConfirmation.bind(this);
   }
@@ -20,9 +20,9 @@ class NewTicketControl extends React.Component {
   render() {
     let currentlyVisibleContent = null;
     if (this.state.formVisibleOnPage) {
-      currentlyVisibleContent = <NewTicketForm onNewTicketCreation={this.props.onNewTicketCreation} />;
+      currentlyVisibleContent = <NewTicketForm onNewTicketCreation = {this.props.onNewTicketCreation} />;
     } else {
-      currentlyVisibleContent = <ConfirmationQuestions onTroubleshootingConfirmation={this.handleTroubleshootingConfirmation} />;
+      currentlyVisibleContent = <ConfirmationQuestions onTroubleshootingConfirmation = {this.handleTroubleshootingConfirmation} />;
     }
     return (
       <div>

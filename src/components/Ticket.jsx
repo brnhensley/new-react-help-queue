@@ -15,7 +15,7 @@ function Ticket(props) {
           background-color: lightgrey;
         }
       `}</style>
-      <div className="color-toggle">
+      <div className = "color-toggle">
         <h3>{props.location} - {props.names}</h3>
         <p><em>{props.issue}</em></p>
         <br/>
