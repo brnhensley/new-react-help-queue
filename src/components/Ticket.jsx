@@ -18,6 +18,7 @@ function Ticket(props) {
       </style>
       <div className = "color-toggle">
         <h3>{props.location} - {props.names}</h3>
+        <h4>{props.formattedWaitTime} ago</h4>
         <p><em>{props.issue}</em></p>
         <br/>
       </div>
@@ -29,6 +30,7 @@ function Ticket(props) {
 Ticket.propTypes = {
   names: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
+  formattedWaitTime: PropTypes.string.isRequired,
   issue: PropTypes.string
 };
 
