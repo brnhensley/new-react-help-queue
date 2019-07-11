@@ -6,6 +6,7 @@ import Error404 from './Error404';
 import { Switch, Route } from 'react-router-dom';
 // import Moment from 'moment';
 import Admin from './Admin';
+import { v4 } from 'uuid';
 
 class App extends React.Component {
 
@@ -22,7 +23,7 @@ class App extends React.Component {
   componentDidMount() {
     this.waitTimeUpdateTimer = setInterval(() =>
       this.updateTicketElapsedWaitTime(),
-      60000
+    60000
     );
   }
 
@@ -33,23 +34,24 @@ class App extends React.Component {
   updateTicketElapsedWaitTime() {
     let newMasterTicketList = Object.assign({}, this.state.masterTicketList);
     Object.keys(newMasterTicketList).forEach(ticketId => {
-      newMasterTicketList[ticketId].formattedWaitTime = (newMasterTicketList[ticketId].timeOpen).fromNow(true)
+      newMasterTicketList[ticketId].formattedWaitTime = (newMasterTicketList[ticketId].timeOpen).fromNow(true);
     });
     this.setState({ masterTicketList: newMasterTicketList });
   }
 
   handleAddingNewTicketToList(newTicket) {
+    let newTicketId = v4(); 
     let newMasterTicketList = Object.assign(
       {},
       this.state.masterTicketList,
-      { [newTicket.id]: newMasterTicketList }
+      { [newTicketId]: newTicket }
     );
-    newMasterTicketList[newTicket.id].formattedWaitTime = newMasterTicketList[newTicket.id].timeOpen.fromNow(true);
+    newMasterTicketList[newTicketId].formattedWaitTime = newMasterTicketList[newTicketId].timeOpen.fromNow(true);
     this.setState({ masterTicketList: newMasterTicketList });
   }
 
-  handleChangeSelectedTicket(ticket) {
-    this.setState({ selectedTicket: ticket });
+  handleChangeSelectedTicket(ticketId) {
+    this.setState({ selectedTicket: ticketId });
   }
 
   render() {
