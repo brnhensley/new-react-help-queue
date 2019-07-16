@@ -14,6 +14,7 @@ function NewTicketForm(props){
     const action = {
       type: 'ADD_TICKET',
       id: v4(),
+      location: _location.value,
       names: _names.value,
       issue: _issue.value,
       timeOpen: new Moment()
