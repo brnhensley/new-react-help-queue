@@ -5,7 +5,7 @@ describe('ticketListReducer', () => {
   let action;
   const sampleTicketData = {
     names: 'Dick and Dick',
-    locations: 'Uglyville',
+    location: 'Uglyville',
     issue: 'can\'t poop right',
     timeOpen: 1500000000,
     id: 0
@@ -20,7 +20,7 @@ describe('ticketListReducer', () => {
     action = {
       type: 'ADD_TICKET',
       names: names,
-      locations: location,
+      location: location,
       issue: issue,
       timeOpen: timeOpen,
       id: id
