@@ -8,14 +8,13 @@ function TicketList(props){
       <hr/>
       {Object.keys(props.ticketList).map(function(ticketId) {
         let ticket = props.ticketList[ticketId];
-        return <Ticket 
+        return <Ticket
           names = {ticket.names}
           location = {ticket.location}
           issue = {ticket.issue}
           formattedWaitTime = {ticket.formattedWaitTime}
           currentRouterPath = {props.currentRouterPath}
           key = {ticketId}
-          onChangeSelectedTicket={props.onChangeSelectedTicket}
           ticketId={ticketId}
         />;
       })}
@@ -25,8 +24,7 @@ function TicketList(props){
 
 TicketList.propTypes = {
   ticketList: PropTypes.object,
-  currentRouterPath: PropTypes.string,
-  onChangeSelectedTicket: PropTypes.func
+  currentRouterPath: PropTypes.string
 };
 
 export default TicketList;

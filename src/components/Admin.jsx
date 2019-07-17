@@ -17,7 +17,6 @@ function Admin(props) {
       <TicketList
         ticketList={props.ticketList}
         currentRouterPath={props.currentRouterPath}
-        onChangeSelectedTicket={props.onChangeSelectedTicket}
       />
     </div>
   );
@@ -26,7 +25,6 @@ function Admin(props) {
 Admin.propTypes = {
   ticketList: PropTypes.array,
   currentRouterPath: PropTypes.string.isRequired,
-  onChangeSelectedTicket: PropTypes.func.isRequired,
   selectedTicket: PropTypes.string
 };
 
